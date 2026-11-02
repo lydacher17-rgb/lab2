@@ -1,0 +1,29 @@
+CREATE TABLE Orders (
+    order_id SERIAL PRIMARY KEY,              -- Номер заказа
+    order_date DATE NOT NULL,                 -- Дата заказа
+    city VARCHAR(100) NOT NULL,               -- Город
+    delivery_address VARCHAR(255) NOT NULL,   -- Адрес доставки
+    assembly_days INTEGER NOT NULL,           -- Срок сборки (дней)
+    product_name VARCHAR(100) NOT NULL,       -- Название товара
+    requires_gift_wrap BOOLEAN DEFAULT FALSE, -- Нужна ли подарочная упаковка (True/False)
+    packages_count INTEGER DEFAULT 1          -- Количество упаковок
+);
+
+
+INSERT INTO Orders 
+(order_date, city, delivery_address, assembly_days, product_name, requires_gift_wrap, packages_count) 
+VALUES
+
+('2023-07-15', 'Moscow', '10 Lenina St.', 1, 'cake', TRUE, 1),
+
+
+('2023-12-01', 'Saint Petersburg', '50 Nevsky Ave.', 3, 'cake', FALSE, 1),
+
+
+('2023-04-10', 'Moscow', '5 Pushkina St.', 2, 'pastry', FALSE, 5),
+
+
+('2023-08-20', 'Moscow', '12 Gagarina St.', 2, 'candy', FALSE, 25),
+
+
+('2023-06-05', 'Kazan', '7 Bauman St.', 4, 'cookie', TRUE, 10);
